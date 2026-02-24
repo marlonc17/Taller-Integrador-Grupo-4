@@ -1,3 +1,8 @@
 # Taller-Integrador
+## Guia y orden de trabajo pendiente 
 
-Semana 2 Investigación 
+### Tarreas a realizar 
+Investigación 
+Presentacion para jueves 5 marzo
+
+### Tareas Completadas 
