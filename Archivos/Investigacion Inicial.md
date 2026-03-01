@@ -1,17 +1,116 @@
-Fundamentos de LoRa/APRS
-LoRa y APRS son tecnologías de comunicación que se utilizan en el ámbito de la radioafición y la comunicación inalámbrica. LoRa (Long Range) es una tecnología de comunicación inalámbrica que permite la comunicación de larga distancia y bajo consumo energético, ideal para aplicaciones como IoT. APRS (Automatic Packet Reporting System) es un sistema de comunicación digital que permite el intercambio de información en tiempo real, como ubicaciones GPS, datos meteorológicos, mensajes cortos o alertas de emergencia. APRS utiliza la modulación AFSK (Audio Frequency-Shift Keying) en FM, operando a 1,200 baudios con tonos de 1,200 Hz y 2,200 Hz.  
-LoRa APRS combina estas tecnologías para ofrecer una red de comunicación robusta y eficiente, con la capacidad de transmitir datos de manera eficiente y con bajo consumo de energía. Esto permite a los usuarios experimentar con LoRa en aplicaciones como el seguimiento de vehículos, la agricultura, la logística y más.
-LoRa APRS Tracker - Home | LoRa APRS Wiki
-APRS (Automatic Position Reporting System, ‘sistema automático de paquetes de posicionamiento) es un sistema de posicionamiento para radioaficionados por el que se envía determinada información (posición, telemetría, meteorología, anuncios, etc.…) de los radioaficionados que integran esta red.
-Se suele combinar el transmisor con un GPS para el envío de su localización. Una red puede estar formada por grupo de Digipeaters (repetidores) y un iGate o puerta a Internet para una información Global. En este último caso estaríamos hablando de APRS-IS (Internet System).
-La red de APRS tradicional (packet, protocolo AX25) se utiliza en la frecuencia de 144,800 MHz (VHF) en el caso de Europa.
-En el caso de LoRa APRS, que es un similar sistema de posicionamiento, pero bajo el mencionado protocolo LoRa, en Europa se ha adoptado la frecuencia de 433,775 MHz (UHF).
-Ambos casos son para uso exclusivo de Radioaficionados por el uso de frecuencias asignadas a ese servicio y por la necesidad de identificarse bajo un indicativo.
-En Internet existen varias páginas donde podemos ver mapas de cómo está la red APRS en cualquier lugar del mundo. Aparecen todo tipo de estaciones, no solo las basadas en terminales LoRa.
-APRS, LORA Y MESHTASTIC – Unión de Radioaficionados de Córdoba
-Permisos requeridos para operar un sistema LoRa/APRS en Costa Rica
-Para operar un sistema LoRa/APRS en Costa Rica, es necesario cumplir con ciertos requisitos legales y de comunicación. Aquí hay un resumen de los permisos y regulaciones requeridos:
-•	Licencia de Radioaficionado: Es obligatorio contar con una licencia de radioaficionado válida para operar sistemas de radiofrecuencia, incluyendo APRS. 
-•	Normativas MICITT: La operación de sistemas de radiofrecuencia debe cumplir con las normativas establecidas por el MICITT.  
-•	Tecnología LoRa: La legalidad del uso de tecnología LoRa depende de la banda de frecuencia empleada. Puede estar clasificada como de uso libre o requerir una autorización específica. 
+#  Fundamentos de LoRa/APRS
+
+##  ¿Qué es LoRa?
+
+LoRa (Long Range) es una tecnología de comunicación inalámbrica diseñada para:
+
+- Comunicación de larga distancia  
+- Bajo consumo energético  
+- Aplicaciones IoT (Internet of Things)
+
+Es ideal para dispositivos que necesitan transmitir pequeñas cantidades de datos a grandes distancias, como:
+
+- Seguimiento de vehículos  
+- Agricultura inteligente  
+- Logística  
+- Sensores remotos  
+
+---
+
+##  ¿Qué es APRS?
+
+APRS (Automatic Packet Reporting System) es un sistema de comunicación digital utilizado principalmente por radioaficionados para el intercambio de información en tiempo real.
+
+###  Información que puede transmitir:
+
+- Ubicación GPS  
+- Datos meteorológicos  
+- Mensajes cortos  
+- Alertas de emergencia  
+- Telemetría  
+
+APRS utiliza:
+
+- Modulación AFSK (Audio Frequency-Shift Keying) en FM  
+- Velocidad de 1,200 baudios  
+- Tonos de 1,200 Hz y 2,200 Hz  
+- Protocolo AX.25  
+
+---
+
+##  Funcionamiento de la Red APRS
+
+Una red APRS tradicional puede estar compuesta por:
+
+- Estaciones transmisoras  
+- Digipeaters (repetidores digitales)  
+- iGate (puerta de enlace a Internet)  
+
+Cuando se conecta a Internet, se integra a APRS-IS (Internet System), permitiendo visualización global.
+
+En Internet existen múltiples plataformas donde se pueden visualizar mapas con estaciones APRS activas alrededor del mundo.
+
+---
+
+##  Frecuencias de Operación
+
+###  APRS Tradicional (Packet Radio)
+
+- Frecuencia en Europa: 144.800 MHz (VHF)  
+- Protocolo: AX.25  
+
+###  LoRa APRS
+
+- Frecuencia adoptada en Europa: 433.775 MHz (UHF)  
+- Utiliza el protocolo LoRa en lugar de AX.25 tradicional  
+
+---
+
+##  ¿Qué es LoRa APRS?
+
+LoRa APRS combina ambas tecnologías:
+
+- La eficiencia energética y largo alcance de LoRa  
+- El sistema de posicionamiento y mensajería de APRS  
+
+Esto permite crear una red de comunicación:
+
+- De bajo consumo  
+- De largo alcance  
+- Robusta y eficiente  
+
+Ideal para experimentación en radioafición y proyectos técnicos.
+
+---
+
+##  Uso Exclusivo para Radioaficionados
+
+Tanto APRS como LoRa APRS:
+
+- Requieren licencia de radioaficionado  
+- Exigen identificación mediante indicativo  
+- Utilizan frecuencias asignadas al servicio de radioaficionados  
+
+---
+
+# 🇨🇷 Permisos para Operar LoRa/APRS en Costa Rica
+
+Para operar un sistema LoRa/APRS en Costa Rica se deben cumplir los siguientes requisitos:
+
+##  Licencia de Radioaficionado
+
+Es obligatorio contar con una licencia válida para operar sistemas de radiofrecuencia como APRS.
+
+##  Normativas MICITT
+
+La operación debe cumplir con las regulaciones establecidas por el MICITT (Ministerio de Ciencia, Innovación, Tecnología y Telecomunicaciones).
+
+##  Tecnología LoRa
+
+La legalidad del uso de tecnología LoRa depende de la banda de frecuencia empleada:
+
+- Puede estar clasificada como de uso libre  
+- Puede requerir una autorización específica  
+
+Se recomienda verificar siempre la normativa vigente antes de operar.
 
