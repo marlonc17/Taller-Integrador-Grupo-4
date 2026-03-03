@@ -54,23 +54,42 @@ En Internet existen múltiples plataformas donde se pueden visualizar mapas con 
 
 ---
 
-##  Frecuencias de Operación
+## Frecuencias de Operación
 
-###  APRS Tradicional (Packet Radio)
+### Referencias Internacionales
 
-- Frecuencia en Europa: 144.800 MHz (VHF)  
-- Protocolo: AX.25  
+#### APRS Tradicional (Packet Radio)
 
-###  LoRa APRS
+Las frecuencias de operación de APRS varían según la región y corresponden a convenciones adoptadas por la comunidad de radioaficionados.
 
-- Frecuencia adoptada en Europa: 433.775 MHz (UHF)  
-- Utiliza el protocolo LoRa en lugar de AX.25 tradicional  
+- Europa: 144.800 MHz (VHF)
+- América: 144.390 MHz (VHF)
+
+Estas frecuencias se utilizan dentro de las bandas atribuidas al Servicio de Radioaficionados en cada país.
+
+---
+
+#### LoRa APRS
+
+En implementaciones experimentales de LoRa APRS se han utilizado frecuencias como:
+
+- 433.775 MHz (UHF)
+
+En estos casos se emplea modulación LoRa en lugar de AFSK tradicional.
+
+---
+
+### Consideración Regulatoria en Costa Rica
+
+En Costa Rica, la operación en cualquier banda de frecuencia debe ajustarse a lo establecido en el **Plan Nacional de Atribución de Frecuencias (PNAF)**.  
+
+Las bandas específicas aplicables y los límites de potencia radiada se desarrollan en la sección de Legislación Costarricense de este documento.  
 
 ---
 
 ##  ¿Qué es LoRa APRS?
 
-LoRa APRS combina ambas tecnologías:
+LoRa APRS combina ambas tecnologías, no utiliza el protocolo AX.25 tradicional en su forma clásica, sino implementaciones adaptadas del formato APRS sobre modulación LoRa.
 
 - La eficiencia energética y largo alcance de LoRa  
 - El sistema de posicionamiento y mensajería de APRS  
@@ -213,6 +232,10 @@ Su función es mostrar en tiempo real:
 - Mensajes
 - Alertas
 
+--- 
+
+En términos arquitectónicos, APRS se basa en una red distribuida RF con repetidores digitales (digipeaters), mientras que LoRaWAN utiliza una arquitectura centralizada donde el servidor gestiona la red y la lógica de comunicación.
+
 ---
 
 ## Capa Física y de Enlace (Modelo OSI) de LoRa
@@ -307,6 +330,16 @@ El servidor de red analiza parámetros como RSSI y SNR de transmisiones reciente
 
 ---
 
+### Modelo OSI APRS
+
+Desde el punto de vista del modelo OSI, APRS se estructura de la siguiente manera:
+
+- **Capa 1 – Física:** Modulación AFSK sobre portadora FM.
+- **Capa 2 – Enlace:** Protocolo AX.25 para el encapsulamiento y direccionamiento de tramas.
+- **Capas superiores:** Integración con APRS-IS cuando los paquetes son retransmitidos a través de Internet.
+
+---
+
 # Legislación Costarricense Aplicable a Sistemas LoRa / APRS
 
 La regulación del espectro radioeléctrico en Costa Rica se rige por:
@@ -377,15 +410,11 @@ Según el PNAF vigente, los límites máximos de Potencia Isotrópica Radiada Eq
 
 Conversión:
 
-\[
-P(W) = 10^{\frac{dBm - 30}{10}}
-\]
+P(W) = 10^((dBm - 30) / 10)
 
 Ejemplo:
 
-\[
-30 \, dBm = 10^{\frac{30-30}{10}} = 1 \, W
-\]
+P(W) = 10^((30 - 30) / 10) = 1
 
 El cumplimiento de estos límites es obligatorio incluso en bandas de uso libre.
 
