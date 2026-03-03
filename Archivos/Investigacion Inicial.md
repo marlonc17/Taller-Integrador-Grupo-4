@@ -8,6 +8,8 @@ LoRa (Long Range) es una tecnología de comunicación inalámbrica diseñada par
 - Bajo consumo energético  
 - Aplicaciones IoT (Internet of Things)
 
+LoRa define la modulación utilizada en la capa física (PHY) del modelo OSI, basada en Chirp Spread Spectrum (CSS). Protocolos como LoRaWAN se encargan de implementar la capa de enlace (MAC) y la gestión de red sobre esta modulación.
+
 Es ideal para dispositivos que necesitan transmitir pequeñas cantidades de datos a grandes distancias, como:
 
 - Seguimiento de vehículos  
@@ -93,48 +95,219 @@ Tanto APRS como LoRa APRS:
 
 ---
 
-## Arquitectura de red:
+## Arquitectura de Red
 
-- Nodo (Cliente/Estación): Es el dispositivo de usuario final. Puede ser un rastreador GPS en un vehículo, una estación meteorológica o un dispositivo móvil. Su función es transmitir datos (posición, telemetría, mensajes) y recibir datos de otros nodos. En LoRa/APRS, un nodo típico podría ser un ESP32 con un módulo LoRa y un GPS .
-
-- Digipeater (Repetidor Digital): Es una estación que recibe paquetes de datos por radiofrecuencia (RF) y los retransmite en la misma frecuencia para extender el alcance de la red. Su objetivo es que los paquetes lleguen más lejos, de "salto en salto". Opera según reglas para evitar bucles infinitos (como el algoritmo "New-N") .
-
-- iGate (Puerta de Enlace a Internet): Es una estación que cumple una doble función: recibe paquetes por RF y los reenvía a Internet (APRS-IS), y viceversa. Actúa como un puente entre la red de radio local y la red global de datos, permitiendo que las estaciones locales sean visibles en mapas mundiales como aprs.fi .
-
-- Gateway LoRa: En el contexto de una red LoRaWAN (más amplia que solo APRS), el gateway es un dispositivo que escucha en múltiples canales y frecuencias para recibir mensajes de todos los nodos LoRa a su alcance. Luego, empaqueta estos mensajes y los reenvía a un servidor de red a través de una conexión IP (Ethernet, WiFi, Celular). A diferencia de un iGate de APRS, un gateway LoRaWAN es "tonto" (solo pasa datos) y la inteligencia de la red reside en el servidor.
-
-- Servidor: Es el "cerebro" de la red. En el ecosistema APRS-IS, son servidores centrales que reciben, filtran y redistribuyen los paquetes de todo el mundo. En una red LoRaWAN privada, el servidor se encarga de la autenticación, el control de acceso, el almacenamiento de datos y la gestión de la red. En el contexto de APRS, también puede referirse al software que corre en un iGate para manejar los datos .
-
-- Cliente Final: Es la aplicación o interfaz que utiliza un usuario humano para visualizar o interactuar con la red. Puede ser un programa como APRSISCE/32, Xastir en una computadora, o una app móvil como APRSDroid, que muestra los datos en un mapa
-
-## Capa Física y de Enlace (Modelo OSI) de LoRa
-
-- Spreading Factor (SF) - Factor de Dispersión:
-En LoRa, el SF indica cuántos bits se transmiten por símbolo utilizando modulación Chirp Spread Spectrum (CSS).
-El Spreading Factor es el número de bits codificados por símbolo y determina cuántos chips se usan para representar cada símbolo, la duracion del simbolo y la velocidad de transmision de los datos.  
-Rango: Generalmente de SF7 a SF12.  
-Efecto: Un SF más alto significa que cada bit de datos se codifica en más "chips", lo que hace la señal más resistente al ruido y permite decodificarla a niveles de señal más bajos (mayor sensibilidad y alcance). La desventaja es que el "Time on Air" (tiempo de transmisión) es mucho mayor, lo que consume más batería y reduce el tiempo disponible para que otros dispositivos transmitan. Un SF bajo es más rápido pero menos sensible .
-
-- Bandwidth (BW) - Ancho de Banda:
-El rango de frecuencias que utiliza la señal LoRa. Los valores típicos son 125 kHz, 250 kHz y 500 kHz.  
-Un ancho de banda mayor permite una velocidad de datos más alta, pero reduce la sensibilidad del receptor (menor alcance).  
-Un ancho de banda menor concentra la energía en un espacio más reducido, mejorando la sensibilidad y el alcance .
-
-- Coding Rate (CR) - Tasa de Codificación:
-Es la tasa de corrección de errores hacia adelante (FEC). Se expresa como una relación (como 4/5, 4/6, 4/7, 4/8).
-Un CR de 4/8 significa que por cada 4 bits de datos de informacion, se transmiten 8 bits (más redundancia), ofreciendo la máxima protección contra interferencias y errores. Un CR de 4/5 tiene menos redundancia, es más eficiente pero menos robusto.  
-
-- Sync Word - Palabra de Sincronización:
-Un valor configurable que actúa como una dirección de red a nivel de radio. Los receptores LoRa solo escucharán las transmisiones que tengan la Sync Word correcta. Se utiliza para separar redes. Por ejemplo, las redes públicas de LoRaWAN suelen usar un valor (0x34), mientras que las redes privadas o experimentales pueden usar otro para no interferir.  
-
-- ADR (Adaptive Data Rate):
-Un mecanismo de control que optimiza la velocidad de datos, la potencia de transmisión y otros parámetros de un nodo. El servidor de red (o un iGate en sistemas más simples) analiza la calidad de las transmisiones recientes de un nodo (relación señal/ruido) y le ordena que ajuste sus parámetros (usar un SF más bajo y menos potencia si tiene buena cobertura) para maximizar la eficiencia energética y la capacidad total de la red.  
-
-# Legislación Costarricense Aplicable a Sistemas LoRa / APRS
+La arquitectura de un sistema LoRa/APRS puede involucrar diferentes componentes según se trate de una red basada en radioafición (APRS tradicional) o una red LoRaWAN.
 
 ---
 
-# Marco Normativo
+### Nodo (Cliente / Estación)
+
+Es el dispositivo de usuario final.
+
+Puede tratarse de:
+
+- Rastreador GPS en un vehículo
+- Estación meteorológica
+- Sensor IoT
+- Dispositivo móvil
+
+Su función es:
+
+- Transmitir datos (posición, telemetría, mensajes)
+- Recibir información de otros nodos
+
+En implementaciones LoRa/APRS, un nodo típico puede estar compuesto por:
+
+- Microcontrolador (ej. ESP32)
+- Módulo LoRa
+- Receptor GPS
+- Sistema de alimentación
+
+---
+
+### Digipeater (Repetidor Digital) – APRS
+
+Es una estación que:
+
+- Recibe paquetes por radiofrecuencia (RF)
+- Los retransmite en la misma frecuencia
+- Extiende el alcance de la red mediante saltos sucesivos
+
+Su objetivo es permitir que los paquetes lleguen a estaciones fuera del alcance directo.
+
+Opera bajo reglas específicas para evitar bucles infinitos, como el algoritmo **New-N**, que controla la cantidad de repeticiones permitidas.
+
+---
+
+### iGate (Puerta de Enlace a Internet) – APRS
+
+Es una estación que actúa como puente entre:
+
+- La red de radiofrecuencia local
+- La red global APRS-IS en Internet
+
+Funciones principales:
+
+- Recibir paquetes por RF y reenviarlos a APRS-IS
+- Opcionalmente, transmitir hacia RF paquetes provenientes de Internet
+
+Permite que estaciones locales sean visibles globalmente en plataformas cartográficas.
+
+---
+
+### Gateway LoRa – LoRaWAN
+
+En redes LoRaWAN, el gateway es un dispositivo que:
+
+- Escucha en múltiples canales y frecuencias
+- Recibe mensajes de todos los nodos LoRa dentro de su cobertura
+- Encapsula los paquetes
+- Los reenvía a un servidor mediante conexión IP (Ethernet, WiFi o red celular)
+
+A diferencia del iGate de APRS, el gateway LoRaWAN:
+
+- No realiza procesamiento de red avanzado
+- No gestiona autenticación
+- No toma decisiones de enrutamiento
+
+Su función principal es actuar como concentrador de tráfico RF hacia el servidor.
+
+---
+
+### Servidor
+
+Es el componente central del sistema.
+
+En el ecosistema APRS-IS:
+
+- Existen servidores distribuidos que reciben, filtran y redistribuyen paquetes globalmente.
+
+En una red LoRaWAN privada:
+
+- Se encarga de la autenticación de dispositivos
+- Control de acceso
+- Gestión de red
+- Almacenamiento de datos
+- Optimización de parámetros (ej. ADR)
+
+En el contexto APRS, también puede referirse al software que ejecuta un iGate para procesar y reenviar datos.
+
+---
+
+### Cliente Final
+
+Es la aplicación o interfaz utilizada por el usuario para visualizar o interactuar con la red.
+
+Puede ser:
+
+- Software de escritorio
+- Aplicación móvil
+- Plataforma web con mapas
+- Sistema de monitoreo técnico
+
+Su función es mostrar en tiempo real:
+
+- Ubicación de nodos
+- Telemetría
+- Mensajes
+- Alertas
+
+---
+
+## Capa Física y de Enlace (Modelo OSI) de LoRa
+
+LoRa implementa la modulación en la capa física (PHY) del modelo OSI mediante Chirp Spread Spectrum (CSS).  
+En arquitecturas LoRaWAN, la capa de enlace (MAC) se encarga del control de acceso y la optimización de red.
+
+---
+
+### Capa 1 – Física (PHY)
+
+#### Spreading Factor (SF) – Factor de Dispersión
+
+En LoRa, el Spreading Factor indica cuántos bits se transmiten por símbolo utilizando modulación Chirp Spread Spectrum (CSS).
+
+El SF determina cuántos chips se usan para representar cada símbolo, la duración del símbolo y la velocidad de transmisión de datos.
+
+Rango típico: SF7 a SF12.
+
+Efecto:
+
+- SF alto → cada bit se codifica en más chips, aumentando la resistencia al ruido y la sensibilidad del receptor (mayor alcance).
+- SF bajo → transmisión más rápida, pero menor sensibilidad.
+
+Un SF alto incrementa el *Time on Air*, lo que implica mayor consumo energético y mayor ocupación del canal.
+
+---
+
+#### Bandwidth (BW) – Ancho de Banda
+
+Define el rango de frecuencias utilizado por la señal LoRa.
+
+Valores típicos:
+
+- 125 kHz  
+- 250 kHz  
+- 500 kHz  
+
+Efectos:
+
+- Mayor BW → mayor tasa de datos, menor sensibilidad.
+- Menor BW → mayor sensibilidad y alcance, menor velocidad de transmisión.
+
+---
+
+#### Coding Rate (CR) – Tasa de Codificación
+
+Es la tasa de corrección de errores hacia adelante (Forward Error Correction – FEC).
+
+Se expresa como:
+
+- 4/5  
+- 4/6  
+- 4/7  
+- 4/8  
+
+Un CR 4/8 implica que por cada 4 bits de información se transmiten 8 bits totales, agregando redundancia para mayor robustez frente a interferencias.
+
+Un CR 4/5 ofrece menor redundancia, mayor eficiencia y menor protección frente a errores.
+
+---
+
+#### Sync Word – Palabra de Sincronización
+
+Valor configurable que actúa como identificador de red a nivel físico.
+
+Los receptores LoRa solo procesan transmisiones que coincidan con la Sync Word configurada.
+
+Permite separar redes públicas y privadas dentro de la misma banda de frecuencia.
+
+---
+
+### Capa 2 – Enlace (MAC)
+
+En redes LoRaWAN, la capa MAC se encarga de:
+
+- Control de acceso al medio
+- Confirmación de paquetes
+- Gestión de canales
+- Control de potencia
+- Optimización de parámetros
+
+#### ADR (Adaptive Data Rate)
+
+Es un mecanismo de control que optimiza dinámicamente:
+
+- Spreading Factor
+- Potencia de transmisión
+- Velocidad de datos
+
+El servidor de red analiza parámetros como RSSI y SNR de transmisiones recientes y ordena al nodo ajustar su configuración para maximizar eficiencia energética y capacidad total de la red.
+
+---
+
+# Legislación Costarricense Aplicable a Sistemas LoRa / APRS
 
 La regulación del espectro radioeléctrico en Costa Rica se rige por:
 
