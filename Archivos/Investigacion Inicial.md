@@ -271,9 +271,6 @@ Según Decreto 40639-MICITT:
 Flujo simplificado:
 
 Solicitud → Evaluación técnica → Resolución SUTEL → Otorgamiento de permiso → Operación
-- Puede requerir una autorización específica  
-
-Se recomienda verificar siempre la normativa vigente antes de operar.
 
 ## Clases de Emisión (Modulación)
 
