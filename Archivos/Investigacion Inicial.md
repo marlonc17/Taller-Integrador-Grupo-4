@@ -113,7 +113,50 @@ Tanto APRS como LoRa APRS:
 - Utilizan frecuencias asignadas al servicio de radioaficionados  
 
 ---
+## Disponibilidad de Módulos ESP32 con LoRa en el Mercado
+Para la implementación práctica de sistemas LoRa/APRS, existen módulos comerciales que integran en una sola placa:
+- Microcontrolador ESP32
+Trae: Transceptor LoRa (SX1276 o SX1278),Conectividad WiFi y Bluetooth y Receptor GPS (a veces) 
+Estos módulos permiten desarrollar nodos LoRa de manera rápida sin necesidad de diseñar circuitos RF desde cero.
 
+- TTGO T-Beam
+El TTGO T-Beam es una placa de desarrollo que integra: ESP32 (WiFi + Bluetooth), Transceptor	SX1276 (868/915 MHz) o SX1278 (433 MHz), Receptor GPS integrado, Conector para batería 18650 y Antenas externas para LoRa y GPS
+Aplicaciones típicas: Rastreo GPS en LoRa APRS, Telemetría remota, Monitoreo ambiental, Prototipos académicos IoT
+
+
+- Heltec WiFi LoRa 32
+El Heltec WiFi LoRa 32 es otro módulo ampliamente utilizado que integra: ESP32, Transceptor LoRa (usualmente SX1278), Pantalla OLED, Pines GPIO accesibles, Conectividad	WiFi / Bluetooth
+Aplicaciones típicas:
+Nodos LoRa
+Visualización local de datos
+Redes experimentales LoRa
+Proyectos académicos de comunicaciones
+
+- SX1276
+El SX1276 es un transceptor LoRa que opera típicamente en: 868 MHz y 915 MHz
+Implementa modulación Chirp Spread Spectrum (CSS) y es ampliamente usado en redes LoRaWAN y aplicaciones de largo alcance.
+
+- SX1278
+El SX1278 es una variante orientada principalmente a la banda de: 433 MHz
+Es común en implementaciones experimentales y proyectos de radioaficionados que utilizan esa banda.
+
+Integración ESP32 + LoRa
+En estos módulos, el ESP32 y el transceptor LoRa se comunican mediante interfaz SPI.
+El ESP32 se encarga de:
+Configurar parámetros LoRa (SF, BW, CR)
+Procesar datos del GPS o sensores
+Gestionar transmisión y recepción
+Implementar lógica de aplicación
+enviar datos vía WiFi
+
+Estos módulos son fáciles de adquirir en tiendas en línea, soportados por comunidades maker e IoT, compatibles con entornos de desarrollo como Arduino y PlatformIO y permiten:
+Implementar nodos LoRa/APRS experimentales
+Analizar parámetros físicos como Spreading Factor y Bandwidth
+Realizar pruebas de alcance y sensibilidad
+Diseñar redes de telemetría
+Integrar sistemas GPS con comunicaciones RF
+
+---
 ## Arquitectura de Red
 
 La arquitectura de un sistema LoRa/APRS puede involucrar diferentes componentes según se trate de una red basada en radioafición (APRS tradicional) o una red LoRaWAN.
