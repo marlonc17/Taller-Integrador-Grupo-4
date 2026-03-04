@@ -2,9 +2,8 @@
 ## Guia y orden de trabajo pendiente 
 
 ### Tareas a realizar 
-revisar la info y agregar los diagramas 
-Presentacion para jueves 5 marzo
+revisar la info de forma final
+hacer la presentacion power point
 
 ### Tareas Completadas 
-APRS
-legislacion y lora 
+En general toda la teoria esta cubierta, contando legislacion y diagramas 
