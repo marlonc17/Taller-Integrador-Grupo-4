@@ -161,6 +161,7 @@ Integrar sistemas GPS con comunicaciones RF
 
 La arquitectura de un sistema LoRa/APRS puede involucrar diferentes componentes según se trate de una red basada en radioafición (APRS tradicional) o una red LoRaWAN.
 
+/Archivos/Diagramas.jpeg
 ---
 
 ### Nodo (Cliente / Estación)
