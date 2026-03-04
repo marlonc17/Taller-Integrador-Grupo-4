@@ -161,7 +161,13 @@ Integrar sistemas GPS con comunicaciones RF
 
 La arquitectura de un sistema LoRa/APRS puede involucrar diferentes componentes según se trate de una red basada en radioafición (APRS tradicional) o una red LoRaWAN.
 
-![Archivos](Diagramas.png)
+<p align="center">
+  <img src="diagram.png" width="900">
+</p>
+
+<p align="center">
+  <strong>Figura 1.</strong> Diagramas general de estructura de red LoRa/APRS.
+</p>
 
 ---
 
@@ -280,6 +286,14 @@ Su función es mostrar en tiempo real:
 --- 
 
 En términos arquitectónicos, APRS se basa en una red distribuida RF con repetidores digitales (digipeaters), mientras que LoRaWAN utiliza una arquitectura centralizada donde el servidor gestiona la red y la lógica de comunicación.
+
+<p align="center">
+  <img src="Diagramas.png" width="900">
+</p>
+
+<p align="center">
+  <strong>Figura 1.</strong> Diagramas general de estructura de red LoRa/APRS.
+</p>
 
 ---
 
