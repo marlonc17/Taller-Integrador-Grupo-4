@@ -194,6 +194,22 @@ En implementaciones LoRa/APRS, un nodo típico puede estar compuesto por:
 - Receptor GPS
 - Sistema de alimentación
 
+<p align="center">
+  <img src="tracker.jpg" width="400">
+</p>
+
+<p align="center">
+  <strong>Figura 2.</strong> Ejemplo de Nodo LoRa/APRS, Tracker.
+</p>
+
+<p align="center">
+  <img src="wifi lora 32 pinout.jpg" width="600">
+</p>
+
+<p align="center">
+  <strong>Figura 3.</strong> wifi lora 32 pinout.
+</p>
+
 ---
 
 ### Digipeater (Repetidor Digital) – APRS
@@ -288,11 +304,11 @@ Su función es mostrar en tiempo real:
 En términos arquitectónicos, APRS se basa en una red distribuida RF con repetidores digitales (digipeaters), mientras que LoRaWAN utiliza una arquitectura centralizada donde el servidor gestiona la red y la lógica de comunicación.
 
 <p align="center">
-  <img src="Diagramas.png" width="900">
+  <img src="Diagramas.jpeg" width="900">
 </p>
 
 <p align="center">
-  <strong>Figura 1.</strong> Diagramas general de estructura de red LoRa/APRS.
+  <strong>Figura 4.</strong> Diagramas funcionales de microarquitectura.
 </p>
 
 ---
