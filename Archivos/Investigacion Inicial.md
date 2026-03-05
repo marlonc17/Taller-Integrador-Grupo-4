@@ -638,3 +638,36 @@ Ejemplo conceptual:
 - D → Datos
 
 La designación exacta depende del ancho de banda configurado y de los parámetros reales del sistema.
+
+--- 
+
+# Plan de Proyecto (Gantt) — Componente: Tracker LoRa/APRS (12 semanas)
+
+## Objetivo general
+Diseñar e implementar un **tracker LoRa/APRS** capaz de adquirir posición GPS y transmitir paquetes mediante LoRa para su integración en una red tipo APRS.
+
+## Objetivos específicos (máximo 3)
+1. **Diseñar la arquitectura del tracker** mediante la selección e integración de hardware (ESP32, módulo LoRa y receptor GPS).
+2. **Implementar el firmware del tracker** para la adquisición de datos GPS y la transmisión de paquetes utilizando tecnología LoRa.
+3. **Evaluar el funcionamiento del sistema** mediante pruebas de comunicación y análisis del desempeño del tracker.
+
+---
+
+## Cronograma (Gantt — 12 semanas)
+
+**Leyenda:** `███` = actividad en ejecución
+
+| Fase | Actividad | S1 | S2 | S3 | S4 | S5 | S6 | S7 | S8 | S9 | S10 | S11 | S12 |
+|---|---|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:---:|:---:|:---:|
+| Investigación | Estudio de LoRa y APRS | ███ | ███ |  |  |  |  |  |  |  |  |  |  |
+| Diseño | Definición de arquitectura del tracker |  | ███ | ███ |  |  |  |  |  |  |  |  |  |
+| Hardware | Selección de módulos y componentes |  |  | ███ | ███ |  |  |  |  |  |  |  |  |
+| Configuración | Preparación del entorno de desarrollo |  |  |  | ███ | ███ |  |  |  |  |  |  |  |
+| Firmware | Lectura de datos GPS |  |  |  |  | ███ | ███ |  |  |  |  |  |  |
+| Firmware | Implementación comunicación LoRa |  |  |  |  |  | ███ | ███ |  |  |  |  |  |
+| Integración | Integración GPS + LoRa |  |  |  |  |  |  | ███ | ███ |  |  |  |  |
+| Pruebas | Pruebas de transmisión y recepción |  |  |  |  |  |  |  | ███ | ███ |  |  |  |
+| Validación | Evaluación de desempeño (alcance/estabilidad) |  |  |  |  |  |  |  |  | ███ | ███ |  |  |
+| Documentación | Redacción y cierre del informe |  |  |  |  |  |  |  |  |  | ███ | ███ | ███ |
+
+---
