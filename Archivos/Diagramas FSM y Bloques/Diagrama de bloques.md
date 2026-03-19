@@ -1,11 +1,11 @@
-
+-----------------------------------------------------------
 |                    CAPA DE APLICACIÓN                    |
 |----------------------------------------------------------|
 |   FSM (Control del sistema)                              |
 |   - Lógica de tracking                                   |
 |   - Control de estados                                   |
 |   - Manejo de errores                                    |
-|----------------------------------------------------------|
+
 |              CAPA DE PROCESAMIENTO DE DATOS              |
 |----------------------------------------------------------|
 |   GPS Parser (NMEA)        |   APRS Encoder              |
