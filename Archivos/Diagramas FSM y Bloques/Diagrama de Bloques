@@ -1,1 +1,19 @@
+El funcionamiento inicia en el estado INIT, donde se realiza la inicialización general del sistema. Posteriormente, el sistema pasa a LOAD_CONFIG, en el cual se cargan los parámetros de configuración necesarios para la operación, tales como intervalos de transmisión, parámetros LoRa y ajustes del GPS.
 
+Una vez configurado, el sistema entra en el estado CHECK_HW, donde se verifica el correcto funcionamiento de los módulos de hardware, incluyendo el GPS, el transceptor LoRa y el sistema de gestión de energía.
+
+Si la verificación es exitosa, el sistema transiciona al estado IDLE, que corresponde a un estado de espera de bajo consumo. En este estado, el sistema permanece inactivo hasta que ocurre un evento de temporización (timer), el cual desencadena la adquisición de datos.
+
+Al activarse el temporizador, el sistema entra en el estado GET_GPS, donde se realiza la lectura y validación de los datos provenientes del módulo GPS. En este punto, se evalúa si los datos obtenidos son válidos (por ejemplo, si existe un fix de posición).
+
+Si los datos GPS son válidos, el sistema continúa hacia el estado ENCODE_APRS, donde la información de posición es procesada y codificada en formato APRS para su transmisión.
+
+Si los datos GPS son inválidos, el sistema pasa al estado ERROR, donde se gestiona el fallo, permitiendo reintentos o reinicialización del sistema.
+
+Una vez codificados los datos, el sistema entra en el estado TX_LORA, en el cual se transmite el paquete a través del módulo LoRa.
+
+Después de la transmisión, el sistema pasa al estado RX_LORA, donde se habilita la recepción de datos entrantes. Esto permite la comunicación bidireccional, por ejemplo, para recibir comandos o mensajes desde otros nodos o estaciones base.
+
+Si se reciben datos, estos son procesados en el estado PROCESS_RX, donde se interpretan y se ejecutan las acciones correspondientes según el contenido recibido.
+
+Finalmente, el sistema entra en el estado POWER_SAVE, en el cual se implementan estrategias de bajo consumo energético, como reducción de frecuencia del microcontrolador o entrada en modos de suspensión. Tras este periodo, el sistema retorna al estado IDLE, cerrando así el ciclo de operación.
