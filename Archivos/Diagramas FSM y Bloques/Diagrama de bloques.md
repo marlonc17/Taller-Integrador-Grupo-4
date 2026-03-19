@@ -1,3 +1,5 @@
+## Diagrama de bloques
+
 El firmware del sistema se organiza utilizando una arquitectura en capas, lo que permite separar claramente las responsabilidades de cada módulo y facilitar el mantenimiento, escalabilidad y reutilización del código.
 
 Esta estructura divide el sistema en niveles que van desde la lógica de aplicación hasta el hardware físico.
