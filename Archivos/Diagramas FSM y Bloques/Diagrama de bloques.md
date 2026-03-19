@@ -1,10 +1,10 @@
-## Diagrama de bloques
+# Diagrama de bloques
 
 El firmware del sistema se organiza utilizando una arquitectura en capas, lo que permite separar claramente las responsabilidades de cada módulo y facilitar el mantenimiento, escalabilidad y reutilización del código.
 
 Esta estructura divide el sistema en niveles que van desde la lógica de aplicación hasta el hardware físico.
 
-# Capa de aplicación
+## Capa de aplicación
 
 En la capa superior se encuentra la máquina de estados finitos (FSM), encargada de controlar el comportamiento global del sistema.
 
@@ -16,7 +16,7 @@ Gestión de estados (GPS, transmisión, recepción)
 
 Manejo de errores
 
-# Capa de procesamiento de datos
+## Capa de procesamiento de datos
 
 Esta capa se encarga de transformar la información obtenida de los sensores en datos útiles para transmisión.
 
@@ -28,7 +28,7 @@ Encoder APRS: codifica los datos en el formato requerido para transmisión
 
 Message Handler: procesa los datos recibidos desde LoRa
 
-# Capa de servicios
+## Capa de servicios
 
 Proporciona funcionalidades transversales necesarias para el sistema:
 
@@ -40,7 +40,7 @@ Gestión de configuración: parámetros del sistema
 
 Gestión de eventos: coordinación entre módulos
 
-# Capa de drivers
+## Capa de drivers
 
 Esta capa permite la comunicación directa con los dispositivos hardware:
 
@@ -50,7 +50,7 @@ LoRa (SPI): transmisión y recepción de paquetes
 
 PMU (I2C): monitoreo y control de energía
 
-# Capa Perifericos
+## Capa Perifericos
 
 La capa de abstracción de hardware  proporciona acceso a los periféricos del ESP32, tales como:
 
@@ -66,7 +66,7 @@ Timers
 
 RTC
 
-# Hardware
+## Hardware
 
 Finalmente, el sistema físico está compuesto por:
 
