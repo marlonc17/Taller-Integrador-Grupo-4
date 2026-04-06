@@ -671,3 +671,6 @@ Diseñar e implementar un **tracker LoRa/APRS** capaz de adquirir posición GPS 
 | Documentación | Redacción y cierre del informe |  |  |  |  |  |  |  |  |  | ███ | ███ | ███ |
 
 ---
+
+### Link presentacion 
+https://estudianteccr-my.sharepoint.com/:p:/g/personal/marstev34_estudiantec_cr/IQDLql-V3UTBTptVxMrIBcFQAcqZ-paEWw8ywhhay9LmOLQ?e=JOFPa7
