@@ -1,6 +1,6 @@
 # Tracker LoRa/APRS
 
-Este repositorio presenta el desarrollo de un **tracker GPS basado en un T-Beam V1.2**, orientado a pruebas de **posicionamiento, telemetría y transmisión inalámbrica de datos**. La idea del proyecto es combinar el uso de **GPS** para obtener ubicación con **LoRa** como medio de comunicación de largo alcance y bajo consumo, tomando como referencia la lógica de reporte automático utilizada en sistemas **APRS**.
+Este repositorio presenta el desarrollo de un **tracker GPS basado en un T-Beam V1.2**, orientado a pruebas de **posicionamiento, telemetría y transmisión inalámbrica de datos**. La idea del proyecto es combinar el uso de **GPS** para obtener ubicación con **LoRa** como medio de comunicación de largo alcance y bajo consumo, tomando como referencia la lógica de reporte automático utilizada en sistemas **APRS**. Y se planea utilizarlo en la implementacion de un sistema de monitoreo de camiones de gas con el objetivo de tener un mayor control de donde se encuentran los camiones y de tener las estaciones listas y preparadas antes de que estos lleguen para optimizar la carga o descarga de estos
 
 ## ¿Qué es APRS?
 
