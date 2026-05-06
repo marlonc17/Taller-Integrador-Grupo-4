@@ -36,15 +36,13 @@ Escuela de Ingeniería en Electrónica — Marlon Cordero Sandoval / Rolando Veg
 | Potencia TX | 20 dBm |
 | Sync Word | 0x12 |
 
-## Formato de trama (entrega parcial)
+## Formato de trama 
 
-```
-CALLSIGN,LAT,LON,VEL,RUM,*CHK
-```
+Se utiliza el formato estandar de APRS
 
 Ejemplo:
 ```
-TI0TEC4-7,9.934739,-84.087502,45,270,*3F
+TI0TEC4-7>APLT00,WIDE1-1:!0956.08N/08405.25W[270/000/A=000120 LoRa Tracker !w../
 ```
 
 ## Cómo cargar el firmware
