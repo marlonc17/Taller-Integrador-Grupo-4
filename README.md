@@ -123,4 +123,5 @@ Desarrollar un nodo tracker LoRa/APRS basado en la plataforma T-Beam AXP2101 V1.
 Instituto Tecnológico de Costa Rica
 
 Curso: Taller Integrador
+<img width="1600" height="1204" alt="WhatsApp Image 2026-05-05 at 11 40 55 AM" src="https://github.com/user-attachments/assets/59dad9a2-caae-473d-a0ae-3a648fc7f9b1" />
 
